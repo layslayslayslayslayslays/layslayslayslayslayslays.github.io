@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KOZIRI</title>
+<style>
+  body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, sans-serif; background: #12100e; color: #f3ead8; }
+  main { max-width: 560px; margin: 0 auto; padding: 80px 24px; text-align: center; line-height: 1.6; }
+  img { width: 112px; height: 112px; border-radius: 24px; }
+  h1 { letter-spacing: 4px; }
+  .bad { display: none; color: #f08a7a; }
+  body.fail .good { display: none; }
+  body.fail .bad { display: block; }
+</style>
+</head>
+<body>
+<main>
+  <img src="icon.png" alt="KOZIRI">
+  <h1>KOZIRI</h1>
+  <div class="good">
+    <p><b>შესვლა შესრულდა.</b> დაბრუნდით თამაშში.</p>
+    <p><b>Signed in.</b> You can return to the game.</p>
+    <p><b>Вход выполнен.</b> Можно вернуться в игру.</p>
+  </div>
+  <div class="bad">
+    <p><b>შესვლა ვერ მოხერხდა.</b> დაბრუნდით თამაშში და სცადეთ თავიდან.</p>
+    <p><b>Sign-in failed.</b> Return to the game and try again.</p>
+    <p><b>Вход не удался.</b> Вернитесь в игру и попробуйте ещё раз.</p>
+  </div>
+</main>
+<script>
+  if (new URLSearchParams(location.search).get("fail")) { document.body.className = "fail"; }
+  setTimeout(function () { window.close(); }, 1500);
+</script>
+</body>
+</html>
