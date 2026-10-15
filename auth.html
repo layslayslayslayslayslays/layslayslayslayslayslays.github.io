@@ -27,7 +27,8 @@
     location.replace("http://localhost:" + port + "/callback?" + blob);
     return;
   }
-  location.replace("ok.html?fail=1");
+  var err = new URLSearchParams(blob).get("error");
+  location.replace("ok.html?fail=" + encodeURIComponent(err || "noport"));
 })();
 </script>
 </body>

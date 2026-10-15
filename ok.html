@@ -27,11 +27,17 @@
     <p><b>შესვლა ვერ მოხერხდა.</b> დაბრუნდით თამაშში და სცადეთ თავიდან.</p>
     <p><b>Sign-in failed.</b> Return to the game and try again.</p>
     <p><b>Вход не удался.</b> Вернитесь в игру и попробуйте ещё раз.</p>
+    <p style="color:#9c907a;font-size:14px">code: <span id="why"></span></p>
   </div>
 </main>
 <script>
-  if (new URLSearchParams(location.search).get("fail")) { document.body.className = "fail"; }
-  setTimeout(function () { window.close(); }, 1500);
+  var why = new URLSearchParams(location.search).get("fail");
+  if (why) {
+    document.body.className = "fail";
+    document.getElementById("why").textContent = why;
+  } else {
+    setTimeout(function () { window.close(); }, 1500);
+  }
 </script>
 </body>
 </html>
